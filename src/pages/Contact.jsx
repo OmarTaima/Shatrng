@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import ContactUs from "../components/contactus";
-import Footer from "../components/footer";
+import ContactUs from "../components/ContactUs";
+import Footer from "../components/Footer";
 import { getFullUrl, getDefaultOgImage, SITE_NAME } from "../utils/ogMeta";
 
 const Contact = () => {
