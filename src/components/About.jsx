@@ -77,16 +77,8 @@ const About = () => {
               transition={{ delay: 0.6 }}
               className="pt-10 flex flex-wrap gap-20"
             >
-              <div className="relative group">
-                <h4 className="text-8xl font-serif font-medium text-black transition-colors group-hover:text-primary duration-500">64</h4>
-                <div className="absolute -top-4 -right-8 text-primary/40 text-4xl group-hover:text-primary transition-colors">+</div>
-                <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mt-6 font-bold">Square Precision</p>
-              </div>
-              <div className="relative group">
-                <h4 className="text-8xl font-serif font-medium text-black transition-colors group-hover:text-primary duration-500">3</h4>
-                <div className="absolute -top-4 -right-10 text-primary/40 text-4xl group-hover:text-primary transition-colors italic serif">★</div>
-                <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mt-6 font-bold">Elite Spheres</p>
-              </div>
+             
+              
             </motion.div>
           </div>
 

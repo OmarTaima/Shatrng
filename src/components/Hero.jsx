@@ -81,23 +81,13 @@ const Hero = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
             {/* Elegant Badge */}
-            <motion.div 
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="inline-flex items-center gap-4 mb-12 px-8 py-3 border border-primary/20 bg-black/40 backdrop-blur-xl text-primary font-bold tracking-[0.4em] text-[10px] md:text-xs uppercase rounded-full shadow-2xl shadow-primary/10"
-            >
-              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-              {t("hero:badge") || "The Art of Strategic Vision"}
-              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-            </motion.div>
-
+          
             <h1 className="text-7xl md:text-9xl lg:text-[12rem] font-serif font-bold text-white leading-[0.8] mb-14 tracking-tightest">
               <motion.span 
                 initial={{ x: -150, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 1.2, ease: "easeOut" }}
-                className="block relative inline-block mr-4"
+                className="block relative mr-4"
               >
                 MASTER
               </motion.span>
@@ -130,33 +120,9 @@ const Hero = () => {
                 {t("hero:description") || "In the game of branding, every move is calculated. We blend architectural precision with cinematic flair to land your business at checkmate."}
               </p>
               
-              {/* Interactive Piece Counter - Visual Detail */}
-              <div className="flex justify-center gap-16 mb-20 opacity-40">
-                <div className="text-center">
-                  <div className="text-3xl font-serif text-primary mb-1">64</div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold">Squares</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-serif text-white mb-1">32</div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold">Forces</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-serif text-stone-500 mb-1">01</div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold">Vision</div>
-                </div>
-              </div>
+             
 
-              <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={scrollToContact}
-                  className="group relative px-16 py-6 bg-white text-black font-serif text-2xl tracking-widest overflow-hidden rounded-sm transition-all shadow-2xl hover:shadow-primary/20"
-                >
-                  <span className="relative z-10 font-bold uppercase">{t("hero:ctaStart") || "Commence Game"}</span>
-                  <div className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-700" />
-                </motion.button>
-              </div>
+             
             </motion.div>
           </motion.div>
         </div>
@@ -175,7 +141,7 @@ const Hero = () => {
           <motion.div 
             animate={{ y: [-100, 100] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent via-primary to-transparent"
+            className="absolute top-0 left-0 w-full h-1/2 bg-linear-to-b from-transparent via-primary to-transparent"
           />
         </div>
       </div>
