@@ -1,0 +1,3 @@
+# Netlify redirects: Single Page App fallback
+# Ensure all routes serve index.html with 200 so client routing works
+/*    /index.html   200
