@@ -137,13 +137,7 @@ const Hero = () => {
         >
           Explore
         </motion.div>
-        <div className="relative w-px h-24 bg-stone-800 overflow-hidden">
-          <motion.div 
-            animate={{ y: [-100, 100] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-1/2 bg-linear-to-b from-transparent via-primary to-transparent"
-          />
-        </div>
+       
       </div>
     </section>
   );
