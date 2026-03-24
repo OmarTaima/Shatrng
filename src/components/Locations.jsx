@@ -174,7 +174,7 @@ const Locations = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[0.9] tracking-tighter"
+                className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[0.9] tracking-tighter"
               >
                 <span className="block">LOCATIONS</span>
                 <span className="text-primary italic font-normal mt-2 block relative">
