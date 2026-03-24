@@ -32,7 +32,6 @@ const Navbar = () => {
     { id: "about", label: t("navigation:about") || "About", href: "/#about", icon: "♕" },
     { id: "locations", label: t("navigation:locations") || "Locations", href: "/#locations", icon: "♖" },
     { id: "team", label: t("navigation:team") || "Team", href: "/#team", icon: "♘" },
-    { id: "join", label: t("joinUs:title") || "Join Us", href: "/join-us", icon: "♙" }
   ];
 
   useEffect(() => {
@@ -202,20 +201,20 @@ const Navbar = () => {
                     >
                       {link.icon}
                     </motion.span>
-                    <span className={`text-[10px] uppercase tracking-[0.3em] font-black transition-all duration-500 ${
+                    <span className={`text-[10px] uppercase tracking-[0.3em] font-black transition-all duration-500 relative flex flex-col items-center group-active:scale-95 ${
                       activeLink === link.id 
-                        ? 'text-primary' 
-                        : 'text-stone-400 group-hover:text-white'
+                        ? 'text-white' 
+                        : 'text-stone-300 group-hover:text-white'
                     }`}>
                       {link.label}
                     </span>
                   </div>
                   
-                  {/* Active Indicator */}
+                  {/* Active Indicator: Luxury Capsule */}
                   {activeLink === link.id && (
                     <motion.div 
                       layoutId="activeNavIndicator"
-                      className="absolute -bottom-3 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary to-transparent"
+                      className="absolute -inset-x-3 -inset-y-2 bg-primary/20  -z-10 shadow-[0_0_20px_rgba(var(--color-primary),0.2)]"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -224,7 +223,7 @@ const Navbar = () => {
                   <motion.div 
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: hoveredLink === link.id ? 1 : 0 }}
-                    className="absolute -bottom-3 left-0 right-0 h-px bg-white/30 origin-left"
+                    className="absolute -bottom-3 left-0 right-0 h-0.5 bg-white/40 origin-left"
                   />
                 </motion.button>
               ))}
@@ -233,18 +232,7 @@ const Navbar = () => {
             {/* Right Side Actions */}
             <div className="flex items-center gap-6">
               {/* CTA Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('/join-us', 'join')}
-                className="hidden md:flex items-center gap-3 px-6 py-2.5 bg-primary text-black text-xs font-black uppercase tracking-wider rounded-full hover:bg-white transition-all duration-500 shadow-lg hover:shadow-primary/30"
-              >
-                <span>Strategic Alliance</span>
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </motion.button>
-
+            
               {/* Mobile Menu Button */}
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
