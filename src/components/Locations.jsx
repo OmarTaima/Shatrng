@@ -104,22 +104,25 @@ const Locations = () => {
     <section 
       ref={sectionRef}
       id="locations" 
-      className="relative py-48 bg-linear-to-b from-black via-stone-950 to-black text-white overflow-hidden"
+      className="relative py-50 bg-[#0c0908] text-white overflow-hidden"
     >
       {/* Dynamic Background Elements */}
       <motion.div 
         style={{ y: backgroundY, opacity }}
         className="absolute inset-0 z-0"
       >
+        {/* Deep Brown Ambient Wash */}
+        <div className="absolute inset-0 bg-[#3e2723]/15 pointer-events-none" />
+
         {/* Luxurious Gradient Orbs */}
-        <div className="absolute top-40 right-20 w-150 h-150 bg-primary/10 rounded-full blur-[150px] animate-pulse-slow" />
-        <div className="absolute bottom-40 left-20 w-125 h-125 bg-amber-500/5 rounded-full blur-[120px] animate-pulse-slow animation-delay-2000" />
+        <div className="absolute top-40 right-20 w-150 h-150 bg-primary/30 rounded-full blur-[200px] animate-pulse-slow" />
+        <div className="absolute bottom-40 left-20 w-125 h-125 bg-primary/20 rounded-full blur-[180px] animate-pulse-slow animation-delay-2000" />
         
         {/* Chess Pattern Overlay */}
         <div className="absolute inset-0 opacity-[0.03]"
           style={{ 
-            backgroundImage: `repeating-linear-gradient(45deg, #795548 0px, #795548 1px, transparent 1px, transparent 30px),
-                             repeating-linear-gradient(135deg, #795548 0px, #795548 1px, transparent 1px, transparent 30px)`,
+            backgroundImage: `repeating-linear-gradient(45deg, #c58940 0px, #c58940 1px, transparent 1px, transparent 30px),
+                             repeating-linear-gradient(135deg, #c58940 0px, #c58940 1px, transparent 1px, transparent 30px)`,
             backgroundSize: "50px 50px"
           }}
         />
@@ -364,7 +367,7 @@ const Locations = () => {
                       whileHover={{ scale: 1.05, y: -5 }}
                       onClick={() => openLightbox(img, idx)}
                       className="relative aspect-square rounded-xl overflow-hidden cursor-pointer border-2 transition-all duration-300"
-                      style={{ borderColor: idx === currentImageIndex ? '#795548' : 'rgba(255,255,255,0.1)' }}
+                      style={{ borderColor: idx === currentImageIndex ? '#c58940' : 'rgba(255,255,255,0.1)' }}
                     >
                       <img 
                         src={img} 

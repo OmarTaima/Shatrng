@@ -43,54 +43,138 @@ const About = () => {
     }
   ];
 
-  const chessCoordinates = Array.from({ length: 48 }, (_, i) => ({
+  // Enhanced chess coordinates with more dynamic patterns
+  const chessCoordinates = Array.from({ length: 64 }, (_, i) => ({
     x: (i % 8) * 12.5,
     y: Math.floor(i / 8) * 12.5,
     isBlack: (Math.floor(i / 8) + (i % 8)) % 2 === 1,
-    delay: i * 0.05
+    delay: i * 0.03
   }));
 
+  // Premium chess pieces pattern
+  const chessPieces = ["♔", "♕", "♖", "♗", "♘", "♙"];
+  
   return (
     <section 
       ref={sectionRef}
       id="about" 
-      className="relative py-48 bg-linear-to-b from-stone-50 via-white to-stone-50 text-black overflow-hidden"
+      className="relative py-48 bg-white text-black overflow-hidden"
     >
       {/* Dynamic Background Elements */}
       <motion.div 
         style={{ y: backgroundY, opacity }}
         className="absolute inset-0 z-0"
       >
-        {/* Luxurious linear Orbs */}
-        <div className="absolute top-20 right-20 w-150 h-150 bg-primary/5 rounded-full blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-20 left-20 w-125 h-125 bg-amber-500/5 rounded-full blur-[100px] animate-pulse-slow animation-delay-2000" />
-        
-        {/* Sophisticated Pattern Overlay */}
-        <div className="absolute inset-0 opacity-[0.02]"
+        {/* Primary Chessboard Pattern - Premium Marble Effect */}
+        <div className="absolute inset-0 z-0 opacity-[0.08]">
+          <div 
+            className="absolute inset-0"
+            style={{ 
+              backgroundImage: `
+                linear-gradient(45deg, #1a1a1a 1px, transparent 1px),
+                linear-gradient(-45deg, #1a1a1a 1px, transparent 1px)
+              `,
+              backgroundSize: "60px 60px",
+              backgroundPosition: "0 0, 30px 30px",
+              maskImage: "radial-gradient(circle at 30% 40%, black 30%, transparent 80%)",
+              WebkitMaskImage: "radial-gradient(circle at 30% 40%, black 30%, transparent 80%)"
+            }}
+          />
+        </div>
+
+        {/* Classic Chessboard Pattern - Black & Gold */}
+        <div className="absolute inset-0 z-0 opacity-[0.12]">
+          <div 
+            className="absolute inset-0"
+            style={{ 
+              backgroundImage: `
+                repeating-linear-gradient(45deg, 
+                  rgba(197, 137, 64, 0.15) 0px, 
+                  rgba(197, 137, 64, 0.15) 2px,
+                  transparent 2px, 
+                  transparent 8px
+                ),
+                repeating-linear-gradient(135deg, 
+                  rgba(0, 0, 0, 0.1) 0px, 
+                  rgba(0, 0, 0, 0.1) 2px,
+                  transparent 2px, 
+                  transparent 8px
+                )
+              `,
+              backgroundSize: "40px 40px, 40px 40px"
+            }}
+          />
+        </div>
+
+        {/* Elegant 3D Chessboard Effect */}
+        <div className="absolute inset-0 z-0 opacity-[0.15]">
+          <div className="absolute inset-0 grid grid-cols-8 grid-rows-8">
+            {chessCoordinates.map((coord, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay: coord.delay, duration: 0.5 }}
+                className={`relative ${coord.isBlack ? 'bg-linear-to-br from-primary/20 to-primary/5' : 'bg-linear-to-tr from-stone-200/10 to-transparent'}`}
+                style={{
+                  boxShadow: coord.isBlack ? 'inset 0 0 20px rgba(197, 137, 64, 0.1)' : 'none'
+                }}
+              >
+                {/* Subtle corner accents */}
+                {coord.isBlack && (
+                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary/30" />
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Floating Chess Pieces Pattern */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {chessPieces.map((piece, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={isInView ? { opacity: 0.03, scale: 1 } : {}}
+              transition={{ delay: 1 + idx * 0.2, duration: 0.8 }}
+              className="absolute text-8xl font-serif"
+              style={{
+                left: `${15 + (idx * 12)}%`,
+                top: `${20 + (idx * 8)}%`,
+                transform: `rotate(${idx * 15}deg)`
+              }}
+            >
+              {piece}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Premium Gold Dust Overlay */}
+        <div className="absolute inset-0 z-0 opacity-[0.06]"
           style={{ 
-            backgroundImage: `repeating-linear-linear(45deg, #795548 0px, #795548 1px, transparent 1px, transparent 20px),
-                             repeating-linear-linear(135deg, #795548 0px, #795548 1px, transparent 1px, transparent 20px)`,
+            backgroundImage: `radial-gradient(circle at 20% 30%, rgba(197, 137, 64, 0.3) 1px, transparent 1px)`,
             backgroundSize: "40px 40px"
           }}
         />
         
-        {/* Floating Chess Grid Background */}
-        <div className="absolute inset-0 overflow-hidden">
-          {chessCoordinates.map((coord, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={isInView ? { opacity: coord.isBlack ? 0.03 : 0.02, scale: 1 } : {}}
-              transition={{ delay: coord.delay * 0.1, duration: 0.8 }}
-              className="absolute w-[12.5%] h-[12.5%] border border-black/5"
-              style={{
-                left: `${coord.x}%`,
-                top: `${coord.y}%`,
-                backgroundColor: coord.isBlack ? 'rgba(121, 85, 72, 0.05)' : 'transparent'
-              }}
-            />
-          ))}
-        </div>
+        {/* Luxurious Linear Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-[100px] animate-pulse-slow animation-delay-2000" />
+        <div className="absolute top-20 right-20 w-150 h-150 bg-primary/15 rounded-full blur-[140px] animate-pulse-slow" />
+        <div className="absolute bottom-20 left-20 w-125 h-125 bg-primary/10 rounded-full blur-[120px] animate-pulse-slow animation-delay-2000" />
+        
+        {/* Sophisticated Diagonal Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]"
+          style={{ 
+            backgroundImage: `repeating-linear-gradient(45deg, 
+              #c58940 0px, 
+              #c58940 2px, 
+              transparent 2px, 
+              transparent 30px
+            )`,
+            backgroundSize: "42px 42px"
+          }}
+        />
       </motion.div>
 
       <div className={`container relative z-10 mx-auto px-4 md:px-8 max-w-7xl ${isArabic ? "rtl" : "ltr"}`}>
@@ -100,6 +184,11 @@ const About = () => {
           <div className="relative space-y-12 lg:sticky lg:top-32">
             {/* Elegant Corner Accent */}
             <div className="absolute -left-8 top-0 w-px h-32 bg-linear-to-b from-primary/0 via-primary/30 to-primary/0 hidden xl:block" />
+            
+            {/* Chess Piece Border */}
+            <div className="absolute -right-12 top-20 text-6xl text-primary/5 hidden xl:block select-none">
+              ♝
+            </div>
             
             {/* Badge with Animation */}
             <motion.div
@@ -122,7 +211,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-black leading-[0.9] tracking-tighter"
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-cinzel font-bold text-black leading-[0.9] tracking-tighter"
             >
               <motion.span 
                 initial={{ clipPath: "inset(0 100% 0 0)" }}
@@ -238,7 +327,7 @@ const About = () => {
                 onHoverEnd={() => setHoveredCard(null)}
                 className="relative group"
               >
-                {/* Premium Card */}
+                {/* Premium Card with Chess Pattern Border */}
                 <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden border border-stone-100 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl">
                   {/* Background Image with Parallax */}
                   <div className="absolute inset-0 overflow-hidden">
@@ -249,6 +338,19 @@ const About = () => {
                       style={{ backgroundImage: `url(${point.image})` }}
                     />
                     <div className="absolute inset-0 bg-linear-to-r from-white via-white/95 to-white/90 group-hover:from-white/90 group-hover:via-white/80 group-hover:to-white/70 transition-all duration-500" />
+                    
+                    {/* Chess Pattern Overlay on Card */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
+                      <div className="absolute inset-0" style={{
+                        backgroundImage: `repeating-linear-gradient(45deg, 
+                          rgba(197, 137, 64, 0.3) 0px, 
+                          rgba(197, 137, 64, 0.3) 2px,
+                          transparent 2px, 
+                          transparent 20px
+                        )`,
+                        backgroundSize: "28px 28px"
+                      }} />
+                    </div>
                   </div>
 
                   {/* Content */}
@@ -290,18 +392,23 @@ const About = () => {
                     </motion.div>
                   </div>
 
-                  {/* Decorative Bottom Border */}
+                  {/* Decorative Chess Pattern Border */}
                   <motion.div 
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: hoveredCard === index ? 1 : 0 }}
                     transition={{ duration: 0.5 }}
                     className="absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-primary via-amber-500 to-primary origin-left"
                   />
+                  
+                  {/* Chess Piece Corner Accents */}
+                  <div className="absolute top-4 right-4 text-primary/10 text-2xl select-none">
+                    ♘
+                  </div>
                 </div>
               </motion.div>
             ))}
 
-            {/* Philosophy Quote Card */}
+            {/* Philosophy Quote Card with Chess Theme */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -309,7 +416,20 @@ const About = () => {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="relative p-8 md:p-10 bg-linear-to-br from-stone-900 to-black rounded-3xl overflow-hidden group"
             >
+              {/* Chess Pattern Background */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-1 p-4">
+                  {Array.from({ length: 16 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className={`${Math.floor(i / 4) % 2 === i % 2 ? 'bg-primary/30' : 'bg-transparent'} rounded-sm`}
+                    />
+                  ))}
+                </div>
+              </div>
+              
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&fit=crop&q=80&w=800')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-700" />
+              
               <div className="relative z-10">
                 <div className="text-primary text-6xl mb-6">"</div>
                 <p className="text-white text-xl md:text-2xl font-light leading-relaxed italic mb-6">
@@ -320,7 +440,10 @@ const About = () => {
                     <div className="text-white font-bold">Alexander Petrov</div>
                     <div className="text-stone-400 text-sm">Creative Director & Grandmaster</div>
                   </div>
-                  <div className="text-primary text-4xl">♔</div>
+                  <div className="flex gap-2">
+                    <div className="text-primary text-3xl">♔</div>
+                    <div className="text-primary/50 text-3xl">♕</div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -328,16 +451,28 @@ const About = () => {
         </div>
       </div>
 
-      {/* Premium Floating Element */}
+      {/* Premium Floating Chess Pieces */}
       <motion.div 
         animate={{ 
-          y: [0, -20, 0],
-          rotate: [0, 5, -5, 0]
+          y: [0, -30, 0],
+          rotate: [0, 10, -10, 0],
+          scale: [1, 1.05, 1]
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -bottom-20 -right-20 w-96 h-96 opacity-[0.03] pointer-events-none select-none"
       >
         <div className="text-[30rem] leading-none">♞</div>
+      </motion.div>
+      
+      <motion.div 
+        animate={{ 
+          y: [0, 20, 0],
+          rotate: [0, -15, 15, 0],
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute -top-20 -left-20 w-80 h-80 opacity-[0.03] pointer-events-none select-none"
+      >
+        <div className="text-[25rem] leading-none">♝</div>
       </motion.div>
 
       <style jsx>{`
@@ -356,6 +491,11 @@ const About = () => {
         
         .animation-delay-2000 {
           animation-delay: 2s;
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
         }
       `}</style>
     </section>

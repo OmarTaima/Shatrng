@@ -5,9 +5,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#795548', // Brown
-        primaryDark: '#5d4037',
-        primaryLight: '#a1887f',
+        primary: '#c58940', // Cinematic Gold
+        primaryDark: '#965a2a',
+        primaryLight: '#e2c08c',
         secondary: '#839054', // Olive Green
         dark: '#0a0a0a',
         lightDark: '#141414',
@@ -18,9 +18,10 @@ module.exports = {
         }
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
-        sans: ['"Outfit"', 'sans-serif'],
-        arabic: ['Cairo', '"Noto Sans Arabic"', 'sans-serif'],
+        serif: ['"Cinzel"', 'serif'],
+        cinzel: ['"Cinzel"', 'serif'],
+        sans: ['"Cinzel"', 'serif'], // Setting Cinzel as default for cinematic look
+        arabic: ['Cairo', '"Noto Sans Arabic"', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

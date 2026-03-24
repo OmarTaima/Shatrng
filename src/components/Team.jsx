@@ -72,41 +72,25 @@ const Team = () => {
     <section 
       ref={sectionRef}
       id="team" 
-      className="relative py-40 bg-linear-to-b from-white via-stone-50 to-white overflow-hidden"
+      className="relative py-40 bg-white text-black overflow-hidden"
     >
       {/* Dynamic Background Elements */}
       <motion.div 
         style={{ y: backgroundY, opacity }}
         className="absolute inset-0 z-0"
       >
-        {/* Luxurious Gradient Orbs */}
-        <div className="absolute top-40 left-20 w-125 h-125 bg-primary/5 rounded-full blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-40 right-20 w-150 h-150 bg-amber-500/5 rounded-full blur-[150px] animate-pulse-slow animation-delay-2000" />
-        
-        {/* Sophisticated Pattern Overlay */}
-        <div className="absolute inset-0 opacity-[0.02]"
+        {/* Footer-Style Premium Pattern Overlay */}
+        <div className="absolute inset-0 opacity-[0.05]"
           style={{ 
-            backgroundImage: `repeating-linear-gradient(45deg, #795548 0px, #795548 1px, transparent 1px, transparent 30px),
-                             repeating-linear-gradient(135deg, #795548 0px, #795548 1px, transparent 1px, transparent 30px)`,
-            backgroundSize: "40px 40px"
+            backgroundImage: `repeating-linear-gradient(45deg, #c58940 0px, #c58940 1px, transparent 1px, transparent 40px),
+                             repeating-linear-gradient(135deg, #c58940 0px, #c58940 1px, transparent 1px, transparent 40px)`,
+            backgroundSize: "60px 60px"
           }}
         />
-        
-        {/* Floating Chess Grid */}
-        {chessCoordinates.map((coord, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: coord.isBlack ? 0.02 : 0.01 } : {}}
-            transition={{ delay: coord.delay * 0.05, duration: 0.8 }}
-            className="absolute w-[12.5%] h-[12.5%] border border-black/5"
-            style={{
-              left: `${coord.x}%`,
-              top: `${coord.y}%`,
-              backgroundColor: coord.isBlack ? 'rgba(121, 85, 72, 0.03)' : 'transparent'
-            }}
-          />
-        ))}
+
+        {/* Floating Gold Dust Orbs */}
+        <div className="absolute top-40 left-20 w-125 h-125 bg-primary/10 rounded-full blur-[140px] animate-pulse-slow" />
+        <div className="absolute bottom-40 right-20 w-150 h-150 bg-primary/15 rounded-full blur-[160px] animate-pulse-slow animation-delay-2000" />
       </motion.div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-8 max-w-7xl">
@@ -132,7 +116,7 @@ const Team = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-black text-black leading-[0.9] tracking-tighter"
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-cinzel font-black text-black leading-[0.9] tracking-tighter"
             >
               THE
               <span className="text-primary italic mx-3 relative inline-block">

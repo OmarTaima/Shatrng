@@ -72,17 +72,17 @@ const Footer = () => {
 
   return (
     <footer 
-      className="relative bg-linear-to-b from-black via-stone-950 to-black text-white pt-32 pb-16 overflow-hidden"
+      className="relative bg-[#0c0908] text-white pt-32 pb-16 overflow-hidden"
     >
       {/* Premium Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-125 h-125 bg-primary/5 rounded-full blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-0 right-0 w-150 h-150 bg-amber-500/5 rounded-full blur-[150px] animate-pulse-slow animation-delay-2000" />
+        <div className="absolute top-0 left-0 w-125 h-125 bg-primary/10 rounded-full blur-[140px] animate-pulse-slow" />
+        <div className="absolute bottom-0 right-0 w-150 h-150 bg-primary/10 rounded-full blur-[160px] animate-pulse-slow animation-delay-2000" />
         
         <div className="absolute inset-0 opacity-[0.02]"
           style={{ 
-            backgroundImage: `repeating-linear-gradient(45deg, #795548 0px, #795548 1px, transparent 1px, transparent 40px),
-                             repeating-linear-gradient(135deg, #795548 0px, #795548 1px, transparent 1px, transparent 40px)`,
+            backgroundImage: `repeating-linear-gradient(45deg, #c58940 0px, #c58940 1px, transparent 1px, transparent 40px),
+                             repeating-linear-gradient(135deg, #c58940 0px, #c58940 1px, transparent 1px, transparent 40px)`,
             backgroundSize: "60px 60px"
           }}
         />

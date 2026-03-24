@@ -102,25 +102,28 @@ const ContactUs = () => {
     <section 
       ref={sectionRef}
       id="contact-section" 
-      className="relative py-48 bg-linear-to-b from-black via-stone-950 to-black text-white overflow-hidden"
+      className="relative py-48 bg-[#0c0908] text-white overflow-hidden"
     >
       {/* Dynamic Animated Background */}
       <motion.div 
         style={{ y: backgroundY, opacity }}
         className="absolute inset-0 z-0"
       >
-        {/* Luxurious linear Orbs */}
-        <div className="absolute top-0 left-0 w-200 h-200 bg-primary/5 rounded-full blur-[150px] animate-pulse-slow" />
-        <div className="absolute bottom-0 right-0 w-150 h-150 bg-amber-500/5 rounded-full blur-[120px] animate-pulse-slow animation-delay-2000" />
-        
-        {/* Chess Pattern Overlay */}
-        <div className="absolute inset-0 opacity-[0.02]"
+        {/* Footer-Style Premium Pattern Overlay */}
+        <div className="absolute inset-0 opacity-[0.05]"
           style={{ 
-            backgroundImage: `repeating-linear-linear(45deg, #795548 0px, #795548 2px, transparent 2px, transparent 8px),
-                             repeating-linear-linear(135deg, #795548 0px, #795548 2px, transparent 2px, transparent 8px)`,
-            backgroundSize: "40px 40px"
+            backgroundImage: `repeating-linear-gradient(45deg, #c58940 0px, #c58940 1px, transparent 1px, transparent 40px),
+                             repeating-linear-gradient(135deg, #c58940 0px, #c58940 1px, transparent 1px, transparent 40px)`,
+            backgroundSize: "60px 60px"
           }}
         />
+
+        {/* Deep Brown Ambient Wash */}
+        <div className="absolute inset-0 bg-[#3e2723]/30 pointer-events-none" />
+
+        {/* Luxurious Gold Dust Orbs */}
+        <div className="absolute top-0 left-0 w-200 h-200 bg-primary/5 rounded-full blur-[200px] animate-pulse-slow" />
+        <div className="absolute bottom-0 right-0 w-150 h-150 bg-primary/10 rounded-full blur-[180px] animate-pulse-slow animation-delay-2000" />
         
         {/* Floating Chess Pieces Pattern */}
         {chessCoordinates.map((coord, i) => (

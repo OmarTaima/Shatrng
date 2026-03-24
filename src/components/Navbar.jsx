@@ -146,7 +146,7 @@ const Navbar = () => {
                 transition={{ duration: 0.7, ease: "easeInOut" }}
                 className="relative"
               >
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-linear-to-br from-primary to-amber-600 flex items-center justify-center font-serif font-black text-xl lg:text-2xl text-black shadow-lg">
+                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-linear-to-br from-primary to-amber-600 flex items-center justify-center font-cinzel font-black text-xl lg:text-2xl text-black shadow-lg">
                   S
                 </div>
                 <motion.div 
@@ -160,14 +160,14 @@ const Navbar = () => {
                 <motion.span 
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-white font-serif font-bold tracking-[0.2em] text-xl lg:text-2xl leading-none uppercase"
+                  className="text-white font-cinzel font-bold tracking-[0.2em] text-xl lg:text-2xl leading-none uppercase"
                 >
                   SHTARNG
                 </motion.span>
                 <motion.span 
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-primary text-[8px] lg:text-[10px] uppercase tracking-[0.5em] font-black mt-1"
+                  className="text-primary text-[8px] lg:text-[10px] uppercase tracking-[0.5em] font-cinzel font-black mt-1"
                 >
                   STUDIO
                 </motion.span>
@@ -201,7 +201,7 @@ const Navbar = () => {
                     >
                       {link.icon}
                     </motion.span>
-                    <span className={`text-[10px] uppercase tracking-[0.3em] font-black transition-all duration-500 relative flex flex-col items-center group-active:scale-95 ${
+                    <span className={`text-[10px] uppercase tracking-[0.3em] font-cinzel font-black transition-all duration-500 relative flex flex-col items-center group-active:scale-95 ${
                       activeLink === link.id 
                         ? 'text-white' 
                         : 'text-stone-300 group-hover:text-white'

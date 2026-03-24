@@ -56,8 +56,11 @@ const Hero = () => {
     <section 
       ref={containerRef}
       id="home" 
-      className="relative min-h-[120vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-black via-stone-950 to-black text-white py-20 px-4"
+      className="relative min-h-[120vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-[#0c0908] text-white py-20 px-4"
     >
+      {/* Brown Gradient Veil - Intense Cinematic Depth */}
+      <div className="absolute inset-0 z-1 bg-linear-to-b from-[#3e2723]/30 via-transparent to-[#3e2723]/40 pointer-events-none" />
+
       {/* Dynamic Gradient Orbs */}
       <div className="absolute inset-0 z-0">
         <motion.div 
@@ -67,7 +70,7 @@ const Hero = () => {
             scale: [1, 1.2, 1]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 left-10 w-125 h-125 bg-primary/10 rounded-full blur-[150px]"
+          className="absolute top-20 left-10 w-125 h-125 bg-primary/40 rounded-full blur-[180px]"
         />
         <motion.div 
           animate={{ 
@@ -76,7 +79,7 @@ const Hero = () => {
             scale: [1, 1.3, 1]
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 5 }}
-          className="absolute bottom-20 right-10 w-150 h-150 bg-amber-500/5 rounded-full blur-[180px]"
+          className="absolute bottom-20 right-10 w-150 h-150 bg-primary/30 rounded-full blur-[200px]"
         />
       </div>
 
@@ -97,8 +100,8 @@ const Hero = () => {
                 style={{
                   left: `${coord.x}%`,
                   top: `${coord.y}%`,
-                  backgroundColor: coord.isBlack ? 'rgba(121, 85, 72, 0.15)' : 'rgba(255, 255, 255, 0.03)',
-                  boxShadow: coord.isBlack ? 'inset 0 0 20px rgba(121, 85, 72, 0.2)' : 'none'
+                  backgroundColor: coord.isBlack ? 'rgba(197, 137, 64, 0.15)' : 'rgba(255, 255, 255, 0.03)',
+                  boxShadow: coord.isBlack ? 'inset 0 0 20px rgba(197, 137, 64, 0.2)' : 'none'
                 }}
               />
             ))}
@@ -185,7 +188,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Main Headline with Split Animation */}
-            <h1 className="text-5xl md:text-8xl lg:text-[11rem] font-serif font-bold text-white leading-[0.85] mb-8 md:mb-12">
+            <h1 className="text-5xl md:text-8xl lg:text-[11rem] font-cinzel font-bold text-white leading-[0.85] mb-8 md:mb-12">
               <motion.span 
                 initial={{ clipPath: "inset(0 100% 0 0)" }}
                 animate={{ clipPath: "inset(0 0% 0 0)" }}
